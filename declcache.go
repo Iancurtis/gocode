@@ -305,7 +305,6 @@ func find_global_file(imp string, context *package_lookup_context) (string, bool
 			pkgdir := fmt.Sprintf("%s_%s", context.GOOS, context.GOARCH)
 			pkg_path = filepath.Join(p, "pkg", pkgdir, pkgfile)
 			if file_exists(pkg_path) {
-				// Patch for vscode
 				if p, err := context.Import(imp, "", build.AllowBinary|build.FindOnly); err == nil {
 					try_autobuild(p)
 					if file_exists(p.PkgObj) {
